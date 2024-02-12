@@ -16,11 +16,11 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
-vim.cmd([[
-  autocmd FileType go setlocal tabstop=8 shiftwidth=8
-  autocmd FileType python setlocal tabstop=4 shiftwidth=4
-  autocmd FileType java setlocal tabstop=4 shiftwidth=4
-  autocmd FileType rust setlocal tabpstop=4 shiftwdith=4
-  autocmd FileType javascript setlocal tabstop=4 shiftwidth=4
-  autocmd FileType scala setlocal tabstop=2 shiftwidth=2
-]])
+-- vim.cmd([[
+--   autocmd FileType go setlocal tabstop=8 shiftwidth=8
+--   autocmd FileType python setlocal tabstop=4 shiftwidth=4
+--   autocmd FileType java setlocal tabstop=4 shiftwidth=4
+--   autocmd FileType rust setlocal tabstop=4 shiftwdith=4
+--   autocmd FileType javascript setlocal tabstop=4 shiftwidth=4
+--   autocmd FileType scala setlocal tabstop=2 shiftwidth=2
+-- ]])
