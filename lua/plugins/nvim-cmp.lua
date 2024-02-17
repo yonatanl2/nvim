@@ -74,12 +74,12 @@ return {
 					end, { "i", "s" }),
 				}),
 				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
+					{ name = "nvim_lsp", priority = "2" },
+					{ name = "luasnip", priority = "4" },
 					-- { name = "snippy" },
-					{ name = "path" },
+					{ name = "path", priority = "3" },
 				}, {
-					{ name = "buffer" },
+					{ name = "buffer", priority = "1" },
 				}),
 				formatting = {
 					format = function(_, item)

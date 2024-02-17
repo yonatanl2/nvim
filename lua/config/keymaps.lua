@@ -16,3 +16,5 @@ vim.keymap.set("n", "<leader><leader>h", require("smart-splits").swap_buf_left)
 vim.keymap.set("n", "<leader><leader>j", require("smart-splits").swap_buf_down)
 vim.keymap.set("n", "<leader><leader>k", require("smart-splits").swap_buf_up)
 vim.keymap.set("n", "<leader><leader>l", require("smart-splits").swap_buf_right)
+
+vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>")

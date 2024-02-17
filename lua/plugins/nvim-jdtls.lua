@@ -1,6 +1,10 @@
 return {
 	{
 		"mfussenegger/nvim-jdtls",
+		dependencies = {
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+		},
 		opts = function()
 			return {
 				-- How to find the root dir for a given filename. The default comes from
@@ -28,13 +32,16 @@ return {
 					local root_dir = opts.root_dir(fname)
 					local project_name = opts.project_name(root_dir)
 					local cmd = vim.deepcopy(opts.cmd)
+					vim.list_extend(cmd, {
+						"-Xmx1g",
+						"--jvm-arg=" .. string.format("-javaagent:%s", vim.fn.expand("~/.jdtls/lombok/lombok.jar")),
+					})
 					if project_name then
 						vim.list_extend(cmd, {
 							"-configuration",
 							opts.jdtls_config_dir(project_name),
 							"-data",
 							opts.jdtls_workspace_dir(project_name),
-							"--jvm-arg=" .. string.format("-javaagent:%s", vim.fn.expand("~/.jdtls/lombok/lombok.jar")),
 						})
 					end
 					return cmd
