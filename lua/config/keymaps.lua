@@ -18,3 +18,6 @@ vim.keymap.set("n", "<leader><leader>k", require("smart-splits").swap_buf_up)
 vim.keymap.set("n", "<leader><leader>l", require("smart-splits").swap_buf_right)
 
 vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>")
+vim.keymap.set("n", "<leader>gho", ":OpenInGHFileLines <CR>", { silent = true, noremap = true })
+
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { silent = true, noremap = true })

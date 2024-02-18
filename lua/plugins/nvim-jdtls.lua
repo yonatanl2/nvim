@@ -1,3 +1,5 @@
+local map = vim.keymap.set
+
 return {
 	{
 		"mfussenegger/nvim-jdtls",
@@ -11,18 +13,18 @@ return {
 				-- lspconfig which provides a function specifically for java projects.
 				root_dir = require("lspconfig.server_configurations.jdtls").default_config.root_dir,
 
-				-- How to find the project name for a given root dir.
-				project_name = function(root_dir)
-					return root_dir and vim.fs.basename(root_dir)
-				end,
+        -- How to find the project name for a given root dir.
+        project_name = function(root_dir)
+          return root_dir and vim.fs.basename(root_dir)
+        end,
 
-				-- Where are the config and workspace dirs for a project?
-				jdtls_config_dir = function(project_name)
-					return vim.fn.stdpath("cache") .. "/jdtls/" .. project_name .. "/config"
-				end,
-				jdtls_workspace_dir = function(project_name)
-					return vim.fn.stdpath("cache") .. "/jdtls/" .. project_name .. "/workspace"
-				end,
+        -- Where are the config and workspace dirs for a project?
+        jdtls_config_dir = function(project_name)
+          return vim.fn.stdpath("cache") .. "/jdtls/" .. project_name .. "/config"
+        end,
+        jdtls_workspace_dir = function(project_name)
+          return vim.fn.stdpath("cache") .. "/jdtls/" .. project_name .. "/workspace"
+        end,
 
 				-- How to run jdtls. This can be overridden to a full java command-line
 				-- if the Python wrapper script doesn't suffice.
@@ -33,7 +35,7 @@ return {
 					local project_name = opts.project_name(root_dir)
 					local cmd = vim.deepcopy(opts.cmd)
 					vim.list_extend(cmd, {
-						"-Xmx1g",
+						"-Xmx6g",
 						"--jvm-arg=" .. string.format("-javaagent:%s", vim.fn.expand("~/.jdtls/lombok/lombok.jar")),
 					})
 					if project_name then
@@ -47,10 +49,10 @@ return {
 					return cmd
 				end,
 
-				-- These depend on nvim-dap, but can additionally be disabled by setting false here.
-				dap = { hotcodereplace = "auto", config_overrides = {} },
-				test = true,
-			}
-		end,
-	},
+        -- These depend on nvim-dap, but can additionally be disabled by setting false here.
+        dap = { hotcodereplace = "auto", config_overrides = {} },
+        test = true,
+      }
+    end,
+  },
 }
